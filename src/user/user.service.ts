@@ -1,4 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class UserService {}
+export class UserService {
+    createdUser() {
+        return {message: 'User created'}
+    }
+}
