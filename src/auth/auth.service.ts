@@ -3,10 +3,10 @@ import { UserService } from 'src/user/user.service';
 
 @Injectable()
 export class AuthService {
-    constructor(private readonly userService: UserService ) {}
-    registerUser() {
-        // logic for user register
-        return this.userService.createdUser( );
-        // return {message: 'User registered successfully'}
-    }
+  constructor(private readonly userService: UserService) {}
+  registerUser() {
+    // logic for user register
+    return this.userService.createdUser();
+    // return {message: 'User registered successfully'}
+  }
 }
