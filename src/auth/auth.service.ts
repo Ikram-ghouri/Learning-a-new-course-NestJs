@@ -1,12 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
+import { RegisterDto } from './dto/registerUser.dto';
 
 @Injectable()
 export class AuthService {
   constructor(private readonly userService: UserService) {}
-  registerUser() {
-    // logic for user register
-    return this.userService.createdUser();
-    // return {message: 'User registered successfully'}
+
+  async registerUser(registerUserDto: RegisterDto) {
+    console.log('Received registration data:', registerUserDto);
+    const newUser = await this.userService.create(registerUserDto);
+    return {
+      message: 'User registered successfully',
+      user: newUser
+    };
   }
 }
